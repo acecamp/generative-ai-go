@@ -1522,6 +1522,21 @@ type Tool struct {
 	FunctionDeclarations []*FunctionDeclaration
 	// Optional. Enables the model to execute code as part of generation.
 	CodeExecution *CodeExecution
+
+	GoogleSearchRetrieval *GoogleSearchRetrieval
+
+}
+
+type GoogleSearchRetrieval struct {
+	// Optional. Dynamic retrieval configuration.
+	DynamicRetrievalConfig *DynamicRetrievalConfig
+}
+
+type DynamicRetrievalConfig struct {
+	// Optional. The mode in which dynamic retrieval should execute
+	Mode string
+	// Optional. The dynamic threshold for dynamic retrieval.
+	DynamicThreshold float32
 }
 
 func (v *Tool) toProto() *pb.Tool {
