@@ -1532,6 +1532,15 @@ type GoogleSearchRetrieval struct {
 	DynamicRetrievalConfig *DynamicRetrievalConfig
 }
 
+func (v *GoogleSearchRetrieval) toProto() *pb.GoogleSearchRetrieval {
+	if v == nil {
+		return nil
+	}
+	return &pb.GoogleSearchRetrieval{
+		DynamicRetrievalConfig: v.DynamicRetrievalConfig.toProto(),
+	}
+}
+
 func (v GoogleSearchRetrieval) fromProto(p *pb.GoogleSearchRetrieval) *GoogleSearchRetrieval {
 	if p == nil {
 		return nil
@@ -1546,6 +1555,16 @@ type DynamicRetrievalConfig struct {
 	Mode string
 	// Optional. The dynamic threshold for dynamic retrieval.
 	DynamicThreshold float32
+}
+
+func (v *DynamicRetrievalConfig) toProto() *pb.DynamicRetrievalConfig {
+	if v == nil {
+		return nil
+	}
+	return &pb.DynamicRetrievalConfig{
+		Mode:             pb.DynamicRetrievalConfig_Mode(pb.DynamicRetrievalConfig_Mode_value[v.Mode]),
+		DynamicThreshold: &v.DynamicThreshold,
+	}
 }
 
 func (DynamicRetrievalConfig) fromProto(p *pb.DynamicRetrievalConfig) *DynamicRetrievalConfig {
@@ -1565,6 +1584,7 @@ func (v *Tool) toProto() *pb.Tool {
 	return &pb.Tool{
 		FunctionDeclarations: pvTransformSlice(v.FunctionDeclarations, (*FunctionDeclaration).toProto),
 		CodeExecution:        v.CodeExecution.toProto(),
+		GoogleSearchRetrieval: v.GoogleSearchRetrieval.toProto(),
 	}
 }
 
