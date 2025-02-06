@@ -1525,12 +1525,33 @@ type Tool struct {
 
 	GoogleSearchRetrieval *GoogleSearchRetrieval
 
+	GoogleSearch *GoogleSearch
+
+}
+
+type GoogleSearch struct {
+	// Optional. The search query to be used for Google search.
 }
 
 type GoogleSearchRetrieval struct {
 	// Optional. Dynamic retrieval configuration.
 	DynamicRetrievalConfig *DynamicRetrievalConfig
 }
+
+func (v *GoogleSearch) toProto() *pb.GoogleSearch {
+	if v == nil {
+		return nil
+	}
+	return &pb.GoogleSearch{}
+}
+
+func (v GoogleSearch) fromProto(p *pb.GoogleSearch) *GoogleSearch {
+	if p == nil {
+		return nil
+	}
+	return &GoogleSearch{}
+}
+
 
 func (v *GoogleSearchRetrieval) toProto() *pb.GoogleSearchRetrieval {
 	if v == nil {
@@ -1585,6 +1606,7 @@ func (v *Tool) toProto() *pb.Tool {
 		FunctionDeclarations: pvTransformSlice(v.FunctionDeclarations, (*FunctionDeclaration).toProto),
 		CodeExecution:        v.CodeExecution.toProto(),
 		GoogleSearchRetrieval: v.GoogleSearchRetrieval.toProto(),
+		GoogleSearch: 	   v.GoogleSearch.toProto(),
 	}
 }
 
@@ -1596,6 +1618,7 @@ func (Tool) fromProto(p *pb.Tool) *Tool {
 		FunctionDeclarations: pvTransformSlice(p.FunctionDeclarations, (FunctionDeclaration{}).fromProto),
 		CodeExecution:        (CodeExecution{}).fromProto(p.CodeExecution),
 		GoogleSearchRetrieval: (GoogleSearchRetrieval{}).fromProto(p.GoogleSearchRetrieval),
+		GoogleSearch: (GoogleSearch{}).fromProto(p.GoogleSearch),
 	}
 }
 
