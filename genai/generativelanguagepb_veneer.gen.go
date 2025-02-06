@@ -1531,6 +1531,7 @@ type Tool struct {
 
 type GoogleSearch struct {
 	// Optional. The search query to be used for Google search.
+	SearchQuery string `json:"search_query,omitempty"`
 }
 
 type GoogleSearchRetrieval struct {
@@ -1542,14 +1543,18 @@ func (v *GoogleSearch) toProto() *pb.GoogleSearch {
 	if v == nil {
 		return nil
 	}
-	return &pb.GoogleSearch{}
+	return &pb.GoogleSearch{
+		SearchQuery: v.SearchQuery,
+	}
 }
 
 func (v GoogleSearch) fromProto(p *pb.GoogleSearch) *GoogleSearch {
 	if p == nil {
 		return nil
 	}
-	return &GoogleSearch{}
+	return &GoogleSearch{
+		SearchQuery: p.SearchQuery,
+	}
 }
 
 
