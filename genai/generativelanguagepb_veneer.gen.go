@@ -21,7 +21,6 @@ import (
 	"time"
 
 	pb "cloud.google.com/go/ai/generativelanguage/apiv1beta/generativelanguagepb"
-	"github.com/googleapis/gax-go/v2/apierror"
 	spb "google.golang.org/genproto/googleapis/rpc/status"
 	gstatus "google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/durationpb"
@@ -1531,7 +1530,6 @@ type Tool struct {
 
 type GoogleSearch struct {
 	// Optional. The search query to be used for Google search.
-	SearchQuery string `json:"search_query,omitempty"`
 }
 
 type GoogleSearchRetrieval struct {
@@ -1539,21 +1537,19 @@ type GoogleSearchRetrieval struct {
 	DynamicRetrievalConfig *DynamicRetrievalConfig
 }
 
-func (v *GoogleSearch) toProto() *pb.GoogleSearch {
+func (v *GoogleSearch) toProto() *pb.Tool_GoogleSearch {
 	if v == nil {
 		return nil
 	}
-	return &pb.GoogleSearch{
-		SearchQuery: v.SearchQuery,
+	return &pb.Tool_GoogleSearch{
 	}
 }
 
-func (v GoogleSearch) fromProto(p *pb.GoogleSearch) *GoogleSearch {
+func (v GoogleSearch) fromProto(p *pb.Tool_GoogleSearch) *GoogleSearch {
 	if p == nil {
 		return nil
 	}
 	return &GoogleSearch{
-		SearchQuery: p.SearchQuery,
 	}
 }
 

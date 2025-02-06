@@ -1,24 +1,26 @@
 module github.com/google/generative-ai-go
 
-go 1.21
+go 1.22
+
+toolchain go1.23.4
 
 require (
-	cloud.google.com/go/ai v0.9.0
+	cloud.google.com/go/ai v0.10.0
 	github.com/google/go-cmp v0.6.0
 	github.com/google/uuid v1.6.0
-	github.com/googleapis/gax-go/v2 v2.13.0
-	google.golang.org/api v0.203.0
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20241015192408-796eee8c2d53
-	google.golang.org/grpc v1.67.1
-	google.golang.org/protobuf v1.35.1
+	github.com/googleapis/gax-go/v2 v2.14.0
+	google.golang.org/api v0.214.0
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250124145028-65684f501c47
+	google.golang.org/grpc v1.67.3
+	google.golang.org/protobuf v1.36.4
 )
 
 require (
 	cloud.google.com/go v0.116.0 // indirect
-	cloud.google.com/go/auth v0.9.9 // indirect
-	cloud.google.com/go/auth/oauth2adapt v0.2.4 // indirect
-	cloud.google.com/go/compute/metadata v0.5.2 // indirect
-	cloud.google.com/go/longrunning v0.6.1 // indirect
+	cloud.google.com/go/auth v0.13.0 // indirect
+	cloud.google.com/go/auth/oauth2adapt v0.2.6 // indirect
+	cloud.google.com/go/compute/metadata v0.6.0 // indirect
+	cloud.google.com/go/longrunning v0.6.2 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
@@ -32,11 +34,11 @@ require (
 	go.opentelemetry.io/otel/metric v1.29.0 // indirect
 	go.opentelemetry.io/otel/trace v1.29.0 // indirect
 	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/net v0.30.0 // indirect
-	golang.org/x/oauth2 v0.23.0 // indirect
+	golang.org/x/net v0.33.0 // indirect
+	golang.org/x/oauth2 v0.24.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
-	golang.org/x/time v0.7.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20241007155032-5fefd90f89a9 // indirect
+	golang.org/x/time v0.8.0 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20250204164813-702378808489 // indirect
 )
