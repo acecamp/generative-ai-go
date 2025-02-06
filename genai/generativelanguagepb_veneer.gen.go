@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/googleapis/gax-go/v2/apierror"
 	pb "cloud.google.com/go/ai/generativelanguage/apiv1beta/generativelanguagepb"
 	spb "google.golang.org/genproto/googleapis/rpc/status"
 	gstatus "google.golang.org/grpc/status"
